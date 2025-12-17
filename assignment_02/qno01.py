@@ -1,0 +1,1 @@
+#Write a function to print a given number in binary format.
