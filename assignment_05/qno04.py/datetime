@@ -1,0 +1,15 @@
+import datetime
+
+def main():
+    # Get current date and time
+    current_datetime = datetime.datetime.now()
+
+    # Display current date and time
+    print("Current Date and Time:", current_datetime)
+
+    # Display day of the week
+    print("Day of the Week:", current_datetime.strftime("%A"))
+
+# Main entry point
+if __name__ == "__main__":
+    main()
