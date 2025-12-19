@@ -1,0 +1,69 @@
+# import Flask class from flask module
+from flask import Flask, request
+
+from utils.executeQuery import executeQuery
+from utils.executeSelectQuery import executeSelectQuery
+
+# create a server usinf Flask
+server = Flask(__name__)
+
+@server.get('/')
+def homepage():
+    return "<html><body><h1>This is home page</h1></body></html>"
+
+@server.route('/sensorlog', methods=['POST'])
+def create_sensorlog():
+    # extract data form form
+    id = request.get_json().get('id')
+    temperature = request.get_json().get('temperature')
+    humidity = request.get_json().get('humidity')
+    timestamp= request.get_json().get('timestamp')
+
+    # create a query to add student into table
+    query = f"insert into sensorlog values({1}, '{26}', '{24}', '{timestamp}');"
+
+    #print(query)
+    #execute the query 
+    executeQuery(query=query)
+
+    return "sensorlog is added successfully"
+
+@server.route('/sensorlog', methods=['GET'])
+def retrieve_sensorlog():
+    # create a select query
+    query = "select * from sensorlog"
+
+    # execute select query
+    data = executeSelectQuery(query=query)
+
+    return f"sensorlog: {data}"
+
+@server.route('/sensorlog', methods=['PUT'])
+def update_sensorlogt():
+    # extract data form form
+    temperature = request.get_json().get('temperature')
+    humiditity = request.get_json().get('humidity')
+
+    # create a query
+    query = f"update sensorlog SET temperature = '{temperature}' where temperature = '{temperature}';"
+
+    # execute the query
+    executeQuery(query=query)
+
+    return "temperature is updated successfully"
+
+@server.route('/sensorlog', methods=['DELETE'])
+def delete_sensorlog():
+    # extract data form form
+    temperaure= request.get_json().get('temperature')
+
+    # create a query
+    query = f"delete from temperature where temperature = '{temperature}';"
+
+    # execute the query
+    executeQuery(query=query)
+
+    return "temperature is deleted successfully"
+
+if __name__ == '__main__':
+    server.run(host='0.0.0.0', port=4000, debug=True)
