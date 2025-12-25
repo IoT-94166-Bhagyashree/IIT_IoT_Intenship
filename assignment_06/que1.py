@@ -15,9 +15,9 @@ connection = mysql.connector.connect(
 id = int(input("Enter id : "))
 temperature = float(input("Enter temperature : "))
 humidity= float(input("Enter humidity : "))
-timestamp = (input("Enter timestamp : "))
 
-query = f"insert into students values({id}, '{temperature}', '{humidity}', '{timestamp}');"
+
+query = f"insert into students values({id}, '{temperature}', '{humidity}');"
 
 # create a cursor to execute a query
 cursor = connection.cursor()
