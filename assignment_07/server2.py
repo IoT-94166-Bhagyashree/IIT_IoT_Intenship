@@ -1,6 +1,6 @@
 from flask import Flask,request
-from executeQuery import executeQuery
-from executeSelectQuery import executeSelectQuery
+from utils.executeQuery import executeQuery
+from utils.executeSelectQuery import executeSelectQuery
 from datetime import datetime
 
 server=Flask(__name__)

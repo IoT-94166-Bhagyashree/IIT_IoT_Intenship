@@ -1,8 +1,7 @@
 from flask import Flask,request
 
-from utils_q1.execute_query_q1 import executeQuery
-from utils_q1.execute_select_query_q1 import executeSelectQuery
-from datetime import datetime
+from utils.executeQuery import executeQuery
+from utils.executeSelectQuery import executeSelectQuery
 server = Flask(__name__)
 
 @server.get('/')

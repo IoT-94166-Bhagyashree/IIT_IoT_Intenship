@@ -1,6 +1,6 @@
 from flask import Flask,request
-from executeQuary import executeQuery
-from executeSelectQuery import executeSelectQuery
+from utils.executeQuery import executeQuery
+from utils.executeSelectQuery import executeSelectQuery
 
 server=Flask(__name__)
 
